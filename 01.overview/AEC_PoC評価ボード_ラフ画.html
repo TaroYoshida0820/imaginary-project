@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AEC PoC評価ボード(ラフ画)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Calibri, 'Yu Gothic', 'Hiragino Sans', sans-serif;
+    background: #E8EDF5;
+  }
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    background: #FFFFFF;
+  }
+  .header {
+    background: #121D33;
+    padding: 40px 56px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0,184,169,0.18);
+  }
+  .header .circle.c1 { width: 240px; height: 240px; right: -70px; top: -90px; }
+  .header h1 {
+    font-family: Cambria, 'Yu Mincho', serif;
+    color: #FFFFFF;
+    font-size: 27px;
+    position: relative; z-index: 2;
+  }
+  .header .sub {
+    color: #B9C3D6;
+    font-size: 13.5px;
+    margin-top: 8px;
+    position: relative; z-index: 2;
+  }
+  .header .tag {
+    display: inline-block;
+    margin-top: 14px;
+    background: #00B8A9;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    position: relative; z-index: 2;
+  }
+
+  .stage {
+    display: flex;
+    gap: 40px;
+    padding: 44px 56px;
+    align-items: flex-start;
+  }
+  .photo-wrap {
+    position: relative;
+    flex: 0 0 480px;
+  }
+  .photo-frame {
+    position: relative;
+    width: 480px;
+    background: #FBFBF8;
+    border: 1px solid #D6DEEC;
+    border-radius: 14px;
+    padding: 10px;
+  }
+  .board-label {
+    margin-top: 14px;
+    text-align: center;
+    font-family: Cambria, serif;
+    font-size: 13px;
+    color: #6B7280;
+  }
+
+  .desc {
+    flex: 1;
+    font-size: 13px;
+    color: #1B2A4A;
+    line-height: 1.9;
+  }
+  .story {
+    background: #E8EDF5;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .story .step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .story .step:last-child { margin-bottom: 0; }
+  .story .num {
+    flex: 0 0 20px;
+    height: 20px;
+    background: #1B2A4A;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .story .txt { font-size: 12.5px; color: #1B2A4A; }
+
+  .spec-mini {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .spec-mini th {
+    background: #1B2A4A;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 7px 10px;
+  }
+  .spec-mini td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #E8EDF5;
+    color: #1B2A4A;
+  }
+  .spec-mini td.k { color: #6B7280; width: 34%; }
+
+  .footer { padding: 6px 56px 32px; font-size: 11px; color: #6B7280; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="circle c1"></div>
+    <h1>AEC PoC評価ボード(ラフ画)</h1>
+    <div class="sub">Ambient Experience Controller &mdash; 車両搭載前の機能検証用プロトタイプ</div>
+    <div class="tag">PoC(Proof of Concept)フェーズ</div>
+  </div>
+
+  <div class="stage">
+    <div class="photo-wrap">
+      <div class="photo-frame">
+        <svg viewBox="0 0 560 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs>
+            <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.014" numOctaves="2" seed="6" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+            </filter>
+          </defs>
+
+          <!-- sketchy line-art layer -->
+          <g fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#sketchy)">
+            <!-- main body outline (rough box, slight perspective) -->
+            <path d="M 70 150 L 60 380 L 90 430 L 400 440 L 440 400 L 450 140 L 400 70 L 130 65 Z"/>
+            <path d="M 70 150 L 60 380 L 90 430 L 400 440 L 440 400 L 450 140 L 400 70 L 130 65 Z" opacity="0.35" transform="translate(2,2)"/>
+
+            <!-- top louver grille -->
+            <path d="M 110 110 L 400 105"/>
+            <path d="M 105 135 L 405 128"/>
+            <path d="M 100 160 L 410 152"/>
+            <path d="M 96 185 L 414 176"/>
+            <path d="M 92 210 L 418 200"/>
+            <path d="M 88 235 L 420 224"/>
+
+            <!-- side fan circle -->
+            <ellipse cx="420" cy="260" rx="55" ry="90" transform="rotate(-6 420 260)"/>
+            <circle cx="418" cy="258" r="30"/>
+            <line x1="400" y1="240" x2="436" y2="276"/>
+            <line x1="436" y1="240" x2="400" y2="276"/>
+
+            <!-- TFT display area -->
+            <rect x="95" y="295" width="270" height="120" rx="6"/>
+            <line x1="115" y1="330" x2="330" y2="330" stroke-width="1.4" opacity="0.5"/>
+            <line x1="115" y1="360" x2="280" y2="360" stroke-width="1.4" opacity="0.5"/>
+
+            <!-- small dial bottom right (manual override) -->
+            <circle cx="395" cy="400" r="16"/>
+            <line x1="395" y1="400" x2="405" y2="388"/>
+          </g>
+
+          <!-- TFT text (kept crisp, not sketchy) -->
+          <text x="130" y="365" font-family="Calibri, sans-serif" font-size="34" font-weight="bold" fill="#1B2A4A">TFT</text>
+
+          <!-- annotation layer (crisp labels + leader lines) -->
+          <g font-family="Calibri, sans-serif" font-size="15" font-weight="bold" fill="#1B2A4A">
+            <line x1="250" y1="105" x2="250" y2="30" stroke="#00B8A9" stroke-width="2"/>
+            <circle cx="250" cy="105" r="4" fill="#00B8A9"/>
+            <rect x="120" y="10" width="260" height="22" fill="#FFFFFF" opacity="0.9"/>
+            <text x="250" y="26" text-anchor="middle">香り拡散ベント(簡易ディフューザー)</text>
+
+            <line x1="450" y1="220" x2="500" y2="170" stroke="#00B8A9" stroke-width="2"/>
+            <circle cx="450" cy="220" r="4" fill="#00B8A9"/>
+            <rect x="370" y="120" width="180" height="42" fill="#FFFFFF" opacity="0.9"/>
+            <text x="460" y="138" text-anchor="middle">内部ファン+</text>
+            <text x="460" y="156" text-anchor="middle">香りカートリッジ収容部</text>
+
+            <rect x="60" y="450" width="290" height="22" fill="#FFFFFF" opacity="0.9"/>
+            <text x="205" y="466" text-anchor="middle">気分スコア/シーン状態を表示(簡易TFT)</text>
+
+            <line x1="395" y1="400" x2="470" y2="420" stroke="#00B8A9" stroke-width="2"/>
+            <rect x="470" y="405" width="70" height="30" fill="#FFFFFF" opacity="0.9"/>
+            <text x="505" y="425" text-anchor="middle" font-size="12">操作つまみ</text>
+          </g>
+        </svg>
+      </div>
+      <div class="board-label">Fig.1 &mdash; AEC PoC評価ボード ラフスケッチ(簡易LED+ディフューザー+TFT一体型)</div>
+    </div>
+
+    <div class="desc">
+      <div class="story">
+        <div class="step"><div class="num">1</div><div class="txt">実車ECU開発ではなく、<b>PoC開発</b>が前提。見た目の作り込みは最小限でよい</div></div>
+        <div class="step"><div class="num">2</div><div class="txt">アンビエント制御ロジック(気分推定→シーン選択→発光/香り制御)が仕様通り動くかを、<b>車両側の制御の妥当性検証</b>のためにこのPoCボードで確認する</div></div>
+        <div class="step"><div class="num">3</div><div class="txt">将来的には車両側の各電装(照明ECU・空調ECU等)を制御する想定だが、<b>今回のPoCでは簡易LEDのみを直接駆動</b></div></div>
+        <div class="step"><div class="num">4</div><div class="txt">ディフューザー(送風口)も備えているため、<b>香りの拡散検証も本ボード単体で完結</b>できる</div></div>
+      </div>
+
+      <table class="spec-mini">
+        <tr><th colspan="2">PoC評価ボード 簡易諸元</th></tr>
+        <tr><td class="k">型式</td><td>AEC-PoC Rev.0(ベンチ評価用、非量産)</td></tr>
+        <tr><td class="k">表示</td><td>TFT表示パネル(気分スコア・シーン名・簡易ログ)</td></tr>
+        <tr><td class="k">発光</td><td>簡易LED(将来的な車両アンビエントライトの代替出力)</td></tr>
+        <tr><td class="k">香り</td><td>内蔵ファン+カートリッジによる送風式ディフューザー</td></tr>
+        <tr><td class="k">通信</td><td>CANインターフェース経由で車両模擬機(HILS)と接続</td></tr>
+        <tr><td class="k">検証目的</td><td>気分推定→シーン制御ロジックの妥当性確認(車両搭載前の先行検証)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    本イメージは架空のPoC(概念実証)評価ボードのラフスケッチです。実在の製品・企業とは関係ありません。
+  </div>
+</div>
+</body>
+</html>
